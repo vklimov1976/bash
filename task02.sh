@@ -2,7 +2,11 @@
 
 function show_usage {
 	echo "Использование: $0 src_dir dst_dir"
-	exit 1
+	if [ $# -eq 0 ]; then
+	    exit 99 # Выход с любым ненулевым кодом возврата
+	else
+	    exit $1
+	fi
 }
 
 # Основная программа начинается здесь
